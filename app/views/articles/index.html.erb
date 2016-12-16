@@ -3,6 +3,9 @@
 <ul id="articles">
   <% @articles.each do |article| %>
     <li>
+      <% if article.image.exists? %>
+        <%= image_tag article.image.url(:thumb) %>
+      <% end %>
       <%= link_to article.title, article_path(article) %>
     </li>
   <% end %>
